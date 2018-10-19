@@ -25,8 +25,10 @@ onChangePassword = (event) => {
 
 onSubmit = (e) => {
     e.preventDefault();
-    const url = '/login/' + this.state.name + '/' + this.state.password;
-    axios.get(url).then(response => {
+    axios.post('/login',{name:this.state.name, password:this.state.password},{
+        headers: {'Content-Type': 'application/json'
+
+        }}).then(response => {
         this.setState({data: response.data});
 
     if (this.state.data.email !== 'Unauth') {
