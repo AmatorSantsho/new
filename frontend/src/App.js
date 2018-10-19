@@ -25,7 +25,7 @@ onChangePassword = (event) => {
 
 onSubmit = (e) => {
     e.preventDefault();
-    const url = 'http://localhost:8090/login/' + this.state.name + '/' + this.state.password;
+    const url = '/login/' + this.state.name + '/' + this.state.password;
     axios.get(url).then(response => {
         this.setState({data: response.data});
 
